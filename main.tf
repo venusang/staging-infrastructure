@@ -1,31 +1,28 @@
 # Staging Infrastructure
-# This is a simple example - add your actual infrastructure resources here
-
-# Staging Infrastructure
-# This is a simple example - add your actual infrastructure resources here
+# Long-running operations for testing Running status
 
 terraform {
   required_version = ">= 1.5.0"
+  required_providers {
+    null = {
+      source  = "hashicorp/null"
+      version = "~> 3.0"
+    }
+  }
 }
 
-# Example: Random resource to demonstrate the workspace is working
+# This will take a long time to run
+resource "null_resource" "long_running" {
+  provisioner "local-exec" {
+    command = "sleep 300"  # Sleep for 5 minutes
+  }
+}
+
 resource "random_pet" "example" {
   length = 3
 }
 
-# Add another resource
-resource "random_string" "example" {
-  length  = 16
-  special = false
-}
-
-output "example_pet_name" {
-  value       = random_pet.example.id
-  description = "A randomly generated pet name"
-}
-
-output "example_string" {
-  value       = random_string.example.result
-  description = "A random string"
+output "status" {
+  value = "This run will take 5 minutes"
 }
 
