@@ -28,6 +28,12 @@ resource "random_id" "test1" {
 resource "random_uuid" "test2" {
 }
 
+# One more test resource
+resource "random_password" "test3" {
+  length  = 16
+  special = true
+}
+
 output "example_pet_name" {
   value       = random_pet.example.id
   description = "A randomly generated pet name"
@@ -44,5 +50,10 @@ output "test1_id" {
 
 output "test2_uuid" {
   value = random_uuid.test2.result
+}
+
+output "test3_password" {
+  value     = random_password.test3.result
+  sensitive = true
 }
 
