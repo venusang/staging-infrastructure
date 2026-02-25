@@ -19,6 +19,11 @@ resource "random_string" "example" {
   special = false
 }
 
+# New resource for testing multiple runs
+resource "random_id" "test1" {
+  byte_length = 8
+}
+
 output "example_pet_name" {
   value       = random_pet.example.id
   description = "A randomly generated pet name"
@@ -27,5 +32,9 @@ output "example_pet_name" {
 output "example_string" {
   value       = random_string.example.result
   description = "A random string"
+}
+
+output "test1_id" {
+  value = random_id.test1.hex
 }
 
