@@ -10,7 +10,7 @@ terraform {
 
 # Example: Random resource to demonstrate the workspace is working
 resource "random_pet" "example" {
-  length = 3
+  length = 4  # Changed from 3 to 4
 }
 
 # Add another resource
