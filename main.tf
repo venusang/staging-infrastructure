@@ -19,6 +19,11 @@ resource "random_string" "example" {
   special = false
 }
 
+# This will require approval
+resource "random_id" "needs_approval" {
+  byte_length = 8
+}
+
 output "example_pet_name" {
   value       = random_pet.example.id
   description = "A randomly generated pet name"
@@ -27,5 +32,10 @@ output "example_pet_name" {
 output "example_string" {
   value       = random_string.example.result
   description = "A random string"
+}
+
+output "random_id" {
+  value       = random_id.needs_approval.hex
+  description = "Random ID that needs approval"
 }
 
