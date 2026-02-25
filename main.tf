@@ -24,6 +24,10 @@ resource "random_id" "test1" {
   byte_length = 8
 }
 
+# Another test resource
+resource "random_uuid" "test2" {
+}
+
 output "example_pet_name" {
   value       = random_pet.example.id
   description = "A randomly generated pet name"
@@ -38,8 +42,7 @@ output "test1_id" {
   value = random_id.test1.hex
 }
 
-# This will cause an error - referencing non-existent resource
-output "broken_reference" {
-  value = random_string.does_not_exist.result
+output "test2_uuid" {
+  value = random_uuid.test2.result
 }
 
