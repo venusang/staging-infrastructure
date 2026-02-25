@@ -1,11 +1,13 @@
 # Staging Infrastructure
 # This is a simple example - add your actual infrastructure resources here
 
-# Staging Infrastructure
-# This is a simple example - add your actual infrastructure resources here
-
 terraform {
   required_version = ">= 1.5.0"
+}
+
+# This will cause an error - referencing non-existent resource
+output "broken" {
+  value = random_pet.does_not_exist.id
 }
 
 # Example: Random resource to demonstrate the workspace is working
