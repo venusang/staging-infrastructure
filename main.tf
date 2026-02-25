@@ -38,3 +38,8 @@ output "test1_id" {
   value = random_id.test1.hex
 }
 
+# This will cause an error - referencing non-existent resource
+output "broken_reference" {
+  value = random_string.does_not_exist.result
+}
+
