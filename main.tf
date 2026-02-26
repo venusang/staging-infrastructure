@@ -1,4 +1,4 @@
-# Staging Infrastructure - Error Test Run
+# Staging Infrastructure - Run #71
 terraform {
   required_version = ">= 1.5.0"
 }
@@ -7,7 +7,14 @@ resource "random_pet" "example" {
   length = 3
 }
 
-# This will cause an error
-output "broken_ref" {
-  value = random_pet.nonexistent.id
+resource "random_id" "run_71" {
+  byte_length = 8
+}
+
+output "run_number" {
+  value = "71"
+}
+
+output "run_id_71" {
+  value = random_id.run_71.hex
 }
