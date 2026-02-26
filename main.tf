@@ -1,4 +1,4 @@
-# Staging Infrastructure - Run #15
+# Staging Infrastructure - Run #16
 terraform {
   required_version = ">= 1.5.0"
 }
@@ -7,14 +7,14 @@ resource "random_pet" "example" {
   length = 3
 }
 
-resource "random_id" "run_15" {
+resource "random_id" "run_16" {
   byte_length = 8
 }
 
 output "run_number" {
-  value = "15"
+  value = "16"
 }
 
-output "run_id_15" {
-  value = random_id.run_15.hex
+output "run_id_16" {
+  value = random_id.run_16.hex
 }
